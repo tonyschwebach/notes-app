@@ -9,5 +9,10 @@ module.exports = function (app) {
     res.json(db);
   });
 
+    // saves notes to db 
+    app.post("/api/notes", function (req, res) {
+      db.push(req.body)
+      res.json(db);
+    });
 
 };
