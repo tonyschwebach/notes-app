@@ -1,6 +1,7 @@
 // require Express module
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 // create a server
 const app = express();
@@ -14,7 +15,10 @@ app.use(express.json());
 app.use(express.static('public'));  // set public as root so css and js assets can be applied to html files
 
 // routes for server created assigned to app variable
+require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+
+
 
 // port listener
 app.listen(PORT, function() {
